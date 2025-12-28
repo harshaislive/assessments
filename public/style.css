@@ -2,11 +2,12 @@
     --bg-color: #000000;
     --card-bg: #0a0a0a;
     --text-primary: #ffffff;
-    --text-secondary: #666666;
+    --text-secondary: #888888;
     --accent: #ffffff;
     --accent-hover: #cccccc;
     --border-color: #222;
     --font-body: 'Inter', sans-serif;
+    --ease-premium: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 * {
@@ -25,6 +26,20 @@ body {
     align-items: center;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 120vw;
+    height: 120vh;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 60%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .container {
@@ -78,17 +93,34 @@ h1 {
 
 /* Form Styles */
 .input-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: left;
+    position: relative;
+}
+
+.input-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: var(--text-primary);
+    transition: width 0.8s var(--ease-premium);
+}
+
+.input-group:focus-within::after {
+    width: 100%;
 }
 
 label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     color: var(--text-secondary);
     font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    font-weight: 600;
 }
 
 input {
@@ -98,15 +130,15 @@ input {
     border: none;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-primary);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: var(--font-body);
     font-weight: 300;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s var(--ease-premium);
 }
 
 input:focus {
     outline: none;
-    border-bottom-color: var(--text-primary);
+    border-bottom-color: rgba(255,255,255,0.1); /* Let the pseudo-element handle the main visual */
 }
 
 /* Buttons */
@@ -114,22 +146,28 @@ button {
     cursor: pointer;
     font-family: var(--font-body);
     font-size: 0.8rem;
-    transition: all 0.4s ease;
+    transition: all 0.4s var(--ease-premium);
+}
+
+button:active {
+    transform: scale(0.96);
 }
 
 .btn-primary {
     background-color: var(--text-primary);
     color: var(--bg-color);
     border: none;
-    padding: 0.8rem 2.5rem;
-    font-weight: 500;
+    padding: 1rem 3rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 1rem;
+    letter-spacing: 0.15em;
+    margin-top: 1.5rem;
+    border-radius: 2px;
 }
 
 .btn-primary:hover {
-    background-color: #ddd;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
 
 .btn-secondary {
@@ -187,25 +225,33 @@ button {
 .options-grid {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
 }
 
 .option-card {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s var(--ease-premium);
     display: flex;
     align-items: center;
+    border-radius: 4px;
 }
 
 .option-card:hover {
-    border-color: #444;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8);
 }
 
 .option-card.selected {
     border-color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 1px var(--text-primary);
 }
 
 .option-label {
