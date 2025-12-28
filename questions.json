@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "title": "Scenario 1: The Bottleneck",
-    "scenario": "A cross-functional project is due tomorrow. You have completed your portion perfectly, but a teammate is behind because they struggled with a technical hurdle. This teammate is your peer.",
+    "title": "Scenario 1: The Onboarding Bottleneck",
+    "scenario": "A new Member Onboarding workflow is due tomorrow. You’ve finished your scripts, but a teammate is struggling with a technical hurdle in the automation. This teammate is your peer.",
     "options": [
       { "label": "A", "text": "Send your completed work to the manager immediately to show you’ve met your deadline." },
       { "label": "B", "text": "Offer to hop on a call with the teammate to share your process and help them troubleshoot." },
@@ -12,8 +12,8 @@
   },
   {
     "id": 2,
-    "title": "Scenario 2: The Knowledge Discovery",
-    "scenario": "You’ve discovered a shortcut in the company software that saves you two hours of manual data entry every week.",
+    "title": "Scenario 2: The Funnel Shortcut",
+    "scenario": "You’ve discovered a shortcut in the Marketing Funnel CRM that saves you two hours of manual lead tracking every week.",
     "options": [
       { "label": "A", "text": "Keep it to yourself so you can use that extra time for personal projects and stand out." },
       { "label": "B", "text": "Mention it to your manager during your next 1-on-1 to show your individual innovation." },
@@ -34,8 +34,8 @@
   },
   {
     "id": 4,
-    "title": "Scenario 4: The Ownership Dilemma",
-    "scenario": "A client sends an urgent request that falls into a \"gray area\"—it’s not strictly your job, but the person who handles it is out sick. The client is getting frustrated.",
+    "title": "Scenario 4: The Ecological Design Query",
+    "scenario": "A potential member sends an urgent technical request about Ecological Design specifics. It falls into a \"gray area\"—it’s not strictly BI's job, but the person who handles it is at a farm site without signal.",
     "options": [
       { "label": "A", "text": "Explain to the client that the responsible party is out and give them a return date." },
       { "label": "B", "text": "Try to resolve the issue yourself to protect the team’s reputation and help the client." },
@@ -45,8 +45,8 @@
   },
   {
     "id": 5,
-    "title": "Scenario 5: The Team Mistake",
-    "scenario": "Your team missed a deadline. Your manager asks the group what went wrong. You know it was because a teammate forgot an approval, but you also could have checked in on them.",
+    "title": "Scenario 5: The Campaign Delay",
+    "scenario": "The Community Engagement campaign launched late. The manager asks what went wrong. You know a teammate forgot an approval, but you also could have checked in on them.",
     "options": [
       { "label": "A", "text": "Stay silent and let the teammate explain themselves; it’s their responsibility." },
       { "label": "B", "text": "Say, \"It was a breakdown in communication. I should have followed up to confirm.\"" },
@@ -57,7 +57,7 @@
   {
     "id": 6,
     "title": "Scenario 6: The Documentation Request",
-    "scenario": "You lead a complex process only you know. Your manager asks for a \"How-To\" manual so others can step in if you are ever unavailable.",
+    "scenario": "You lead a complex BI process only you know. Your manager asks for a \"How-To\" manual so others can step in if you are ever unavailable.",
     "options": [
       { "label": "A", "text": "Create a brief outline but leave out the nuances; some things are better learned by doing." },
       { "label": "B", "text": "Create a comprehensive guide so simple that a junior member could handle it." },
@@ -67,8 +67,8 @@
   },
   {
     "id": 7,
-    "title": "Scenario 7: The Weekend Emergency",
-    "scenario": "It is Saturday. An urgent issue arises that requires info only you have. Your manager asks for 10 minutes of your time.",
+    "title": "Scenario 7: The CEO's Weekend Request",
+    "scenario": "It is Saturday. An urgent issue arises with the Farm Productivity dashboard. The CEO needs a quick 10-minute fix for a Monday presentation.",
     "options": [
       { "label": "A", "text": "Ignore the message until Monday; weekends are a strictly \"no-work\" zone." },
       { "label": "B", "text": "Provide the info quickly, then suggest a meeting Monday to ensure others have this info." },
@@ -79,7 +79,7 @@
   {
     "id": 8,
     "title": "Scenario 8: The Broken Build",
-    "scenario": "You accidentally pushed code that broke the build. No one has noticed yet, and you could probably fix it quietly in an hour.",
+    "scenario": "You accidentally pushed code that broke the Sales Enablement toolkit. No one has noticed yet, and you could probably fix it quietly in an hour.",
     "options": [
       { "label": "A", "text": "Fix it quietly and hope no one checks the logs." },
       { "label": "B", "text": "Alert the team channel immediately, apologize, and start fixing." },
@@ -100,8 +100,8 @@
   },
   {
     "id": 10,
-    "title": "Scenario 10: The Junior's Idea",
-    "scenario": "A junior developer suggests a refactor that seems unnecessary to you. You are the senior lead.",
+    "title": "Scenario 10: The AI Support Suggestion",
+    "scenario": "A junior developer suggests a new AI Integration for Member Support that seems unnecessary to you. You are the senior lead.",
     "options": [
       { "label": "A", "text": "Dismiss it immediately; you know the codebase better." },
       { "label": "B", "text": "Ask them to walk you through their reasoning and prototype it." },
@@ -122,8 +122,8 @@
   },
   {
     "id": 12,
-    "title": "Scenario 12: The Ambiguous Task",
-    "scenario": "Your manager assigns you a task with very vague instructions. They are currently busy in meetings.",
+    "title": "Scenario 12: The CEO's Vague Task",
+    "scenario": "The CEO assigns you a task regarding 'Sales Enablement Metrics' with very vague instructions. They are currently busy in meetings.",
     "options": [
       { "label": "A", "text": "Wait until they are free to ask for clarification, even if it delays work." },
       { "label": "B", "text": "Draft a proposal of what you think needs doing and send it for async approval." },
@@ -155,11 +155,11 @@
   },
   {
     "id": 15,
-    "title": "Scenario 15: The \"Not My Job\"",
-    "scenario": "Another team is swamped and asks for help with manual testing. You have free time but it's boring work.",
+    "title": "Scenario 15: The Ecological Data Map",
+    "scenario": "The Ecological Design team is swamped and asks for help with manual plot data mapping. You have free time but it's boring work.",
     "options": [
-      { "label": "A", "text": "Decline; you are a developer, not a QA tester." },
-      { "label": "B", "text": "Jump in to help clear the backlog; it helps the company shipping goals." },
+      { "label": "A", "text": "Decline; you are a developer, not a field analyst." },
+      { "label": "B", "text": "Jump in to help clear the backlog; it helps the company's ecological goals." },
       { "label": "C", "text": "Agree only if you can get a favor in return later." },
       { "label": "D", "text": "Do it, but make sure everyone knows you are doing them a huge favor." }
     ]
@@ -189,7 +189,7 @@
   {
     "id": 18,
     "title": "Scenario 18: The Vacation Handover",
-    "scenario": "You are going on vacation for a week. The project is active.",
+    "scenario": "You are going on vacation for a week. The Member Onboarding rollout is active.",
     "options": [
       { "label": "A", "text": "Tell them to call you if anything burns down." },
       { "label": "B", "text": "Prepare detailed docs and brief a designated backup person." },
@@ -197,10 +197,9 @@
       { "label": "D", "text": "Secretly check email every day because you don't trust them." }
     ]
   },
-  {
-    "id": 19,
+  { "id": 19,
     "title": "Scenario 19: The Team Win",
-    "scenario": "The project launched successfully. The CEO asks you how it went.",
+    "scenario": "The new Farm Management tool launched successfully. The CEO asks you how it went.",
     "options": [
       { "label": "A", "text": "Tell them how hard *you* worked to get it over the line." },
       { "label": "B", "text": "Highlight the specific contributions of your teammates." },
@@ -210,12 +209,12 @@
   },
   {
     "id": 20,
-    "title": "Scenario 20: The Uncomfortable Question",
-    "scenario": "A new hire asks why a certain legacy process is so bad. You know it was the CTO's old code.",
+    "title": "Scenario 20: The Legacy Reconciliation",
+    "scenario": "A new hire asks why the Member Finance reconciliation is so bad. You know it was a legacy manual process from years ago.",
     "options": [
-      { "label": "A", "text": "Defend the code blindly to show loyalty." },
+      { "label": "A", "text": "Defend the process blindly to show loyalty." },
       { "label": "B", "text": "Explain the historical context honestly but admit it needs improvement." },
-      { "label": "C", "text": "Bash the code and the CTO to bond with the new hire." },
+      { "label": "C", "text": "Bash the process and the original author to bond with the new hire." },
       { "label": "D", "text": "Tell them not to ask questions like that." }
     ]
   }
