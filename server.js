@@ -81,21 +81,20 @@ app.post('/api/submit', async (req, res) => {
     };
     let score = 0;
     const redFlags = [];
+    const finalAnswers = { ...answers };
 
-    // Check Answers
-    for (const [qId, answer] of Object.entries(answers)) {
-        if (idealAnswers[qId] === answer) {
+    // Check all questions for missing answers (Time outs)
+    for (let i = 1; i <= 20; i++) {
+        const answer = finalAnswers[i];
+        if (!answer) {
+            finalAnswers[i] = "No Answer (Time Up)";
+        } else if (idealAnswers[i] === answer) {
             score++;
         }
     }
 
     // Red Flag Detection (Expanded)
-    // Hero Complex
-    if (['6C', '7C', '10A', '18A'].includes(`${6}${answers[6]}`) || answers[6] === 'C' || answers[7] === 'C' || answers[10] === 'A' || answers[18] === 'A') {
-         // Using simpler logic checks below to avoid string key messiness
-    }
-
-    const checkFlag = (q, a, flag) => { if(answers[q] === a) redFlags.push(flag); };
+    const checkFlag = (q, a, flag) => { if(finalAnswers[q] === a) redFlags.push(flag); };
 
     // Hero Complex
     checkFlag(6, 'C', "Hero Complex");
@@ -149,7 +148,7 @@ app.post('/api/submit', async (req, res) => {
                 data: { 
                     email, 
                     name, 
-                    answers, 
+                    answers: finalAnswers, 
                     profileAnalysis 
                 }
             });
