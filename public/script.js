@@ -95,7 +95,7 @@ document.getElementById('incapable-btn').addEventListener('click', async () => {
             await fetch('/api/incapable', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email })
+                body: JSON.stringify({ name, email, testMode: window.isTestMode })
             });
             await showModal("Recorded", "Recorded. Honesty is a virtue.");
             location.reload();
@@ -231,7 +231,8 @@ async function sendUpdate(questionId, answer, status) {
             name: userProfile.name,
             questionId,
             answer,
-            status
+            status,
+            testMode: window.isTestMode
         })
     });
 }
@@ -267,7 +268,8 @@ async function finishAssessment() {
             email: userProfile.email,
             name: userProfile.name,
             answers,
-            profile
+            profile,
+            testMode: window.isTestMode
         })
     });
 

@@ -19,7 +19,11 @@ const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.jso
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('index', { questions });
+    res.render('index', { questions, testMode: false });
+});
+
+app.get('/test-drive', (req, res) => {
+    res.render('index', { questions, testMode: true });
 });
 
 app.get('/preview-end', (req, res) => {
@@ -32,15 +36,17 @@ app.get('/api/questions', (req, res) => {
 
 // Incremental Update
 app.post('/api/update', async (req, res) => {
-    const { email, name, questionId, answer, status } = req.body;
+    let { email, name, questionId, answer, status, testMode } = req.body;
     console.log(`Update from ${email}: Q${questionId} = ${answer}`);
     
+    if (testMode) name = `[TEST] ${name}`;
+
     if (WEBHOOK_URL) {
         try {
             await axios.post(WEBHOOK_URL, {
                 type: 'update',
                 timestamp: new Date().toISOString(),
-                data: { email, name, questionId, answer, status }
+                data: { email, name, questionId, answer, status, isTest: !!testMode }
             });
         } catch (error) {
             console.error('Webhook error:', error.message);
@@ -51,7 +57,9 @@ app.post('/api/update', async (req, res) => {
 
 // Incapable Declaration
 app.post('/api/incapable', async (req, res) => {
-    const { email, name } = req.body;
+    let { email, name, testMode } = req.body;
+    if (testMode) name = `[TEST] ${name}`;
+
     console.log(`Incapable declaration from ${email}`);
 
     if (WEBHOOK_URL) {
@@ -59,7 +67,7 @@ app.post('/api/incapable', async (req, res) => {
             await axios.post(WEBHOOK_URL, {
                 type: 'incapable_declaration',
                 timestamp: new Date().toISOString(),
-                data: { email, name, status: 'gave_up' }
+                data: { email, name, status: 'gave_up', isTest: !!testMode }
             });
         } catch (error) {
             console.error('Webhook error:', error.message);
@@ -70,7 +78,9 @@ app.post('/api/incapable', async (req, res) => {
 
 // Final Submission
 app.post('/api/submit', async (req, res) => {
-    const { email, name, answers } = req.body;
+    let { email, name, answers, testMode } = req.body;
+    if (testMode) name = `[TEST] ${name}`;
+
     console.log(`Submission from ${email}`);
 
     // Analysis Logic
@@ -149,7 +159,8 @@ app.post('/api/submit', async (req, res) => {
                     email, 
                     name, 
                     answers: finalAnswers, 
-                    profileAnalysis 
+                    profileAnalysis,
+                    isTest: !!testMode
                 }
             });
         } catch (error) {

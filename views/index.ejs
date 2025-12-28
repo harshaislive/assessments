@@ -40,6 +40,12 @@
     </button>
 
     <div class="container">
+        <% if (testMode) { %>
+            <div style="position:fixed; bottom:20px; left:20px; background:#ff4d4d; color:white; padding:5px 10px; border-radius:4px; font-size:12px; z-index:1000; font-weight:bold;">TEST MODE</div>
+        <% } %>
+        <script>
+            window.isTestMode = <%= testMode %>;
+        </script>
         <!-- Welcome Screen -->
         <section id="welcome-screen" class="screen active">
             <div class="content-wrapper">
