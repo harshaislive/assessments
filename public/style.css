@@ -575,7 +575,14 @@ button:active {
     box-shadow: 0 30px 60px rgba(0,0,0,0.3);
     text-align: left; /* Editorial look */
     position: relative;
-    overflow: hidden;
+    max-height: 90vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar IE */
+}
+
+.manifesto-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
 }
 
 .manifesto-container::before {
