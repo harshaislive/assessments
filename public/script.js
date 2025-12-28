@@ -141,12 +141,26 @@ function loadQuestion(index) {
     
     // Update UI
     qCurrentEl.textContent = String(index + 1).padStart(2, '0');
-    prevBtn.disabled = index === 0;
-    nextBtn.textContent = index === questions.length - 1 ? 'Finish Assessment' : 'Next Scenario';
     
+    // Lock Previous (Always)
+    prevBtn.disabled = true;
+    prevBtn.classList.add('locked');
+
+    // Lock Next (Until Answered)
+    // Check if we already have an answer (unlikely in strict flow, but good for robustness)
     const question = questions[index];
     const currentAnswer = answers[question.id];
 
+    if (currentAnswer) {
+        nextBtn.disabled = false;
+        nextBtn.classList.remove('locked');
+    } else {
+        nextBtn.disabled = true;
+        nextBtn.classList.add('locked');
+    }
+    
+    nextBtn.querySelector('.btn-text').textContent = index === questions.length - 1 ? 'Finish Assessment' : 'Next Scenario';
+    
     // Render Question
     questionContainer.innerHTML = `
         <h2 class="question-text fade-in">${question.scenario}</h2>
@@ -171,7 +185,9 @@ function startTimer() {
         updateTimerDisplay();
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            handleNext(); // Auto-advance
+            // If time runs out, maybe auto-select? Or just force next?
+            // For now, let's just force next if they have an answer, or alert.
+            // But per request "Unlock next only if answer", we'll just stop timer.
         }
     }, 1000);
 }
@@ -200,6 +216,10 @@ function selectOption(label) {
     const qId = questions[currentQuestionIndex].id;
     answers[qId] = label;
 
+    // Unlock Next Button
+    nextBtn.disabled = false;
+    nextBtn.classList.remove('locked');
+
     // Send Incremental Update
     sendUpdate(qId, label, 'in_progress');
 }
@@ -225,9 +245,7 @@ function updateProgressBar() {
 
 // Navigation
 nextBtn.addEventListener('click', handleNext);
-prevBtn.addEventListener('click', () => {
-    if (currentQuestionIndex > 0) loadQuestion(currentQuestionIndex - 1);
-});
+// Prev button is disabled, no listener needed.
 
 async function handleNext() {
     if (currentQuestionIndex < questions.length - 1) {

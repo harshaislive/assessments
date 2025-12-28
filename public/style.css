@@ -397,11 +397,61 @@ button:active {
     color: var(--text-primary);
 }
 
+/* Controls & Locking */
 .controls {
     margin-top: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.lock-icon {
+    width: 14px;
+    height: 14px;
+    margin: 0 6px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Previous Button (Always Locked) */
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    /* ... existing styles ... */
+}
+
+.btn-secondary.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Next Button (Locked State) */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* ... existing styles ... */
+}
+
+.btn-primary.locked {
+    background-color: var(--text-secondary);
+    color: var(--bg-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+.btn-primary.locked:hover {
+    background-color: var(--text-secondary);
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+/* Hide lock on Next when unlocked */
+.btn-primary:not(.locked) .lock-icon {
+    display: none;
 }
 
 /* Stats Panel */
