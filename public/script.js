@@ -185,9 +185,7 @@ function startTimer() {
         updateTimerDisplay();
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            // If time runs out, maybe auto-select? Or just force next?
-            // For now, let's just force next if they have an answer, or alert.
-            // But per request "Unlock next only if answer", we'll just stop timer.
+            handleNext(); // Auto-advance on timeout
         }
     }, 1000);
 }
