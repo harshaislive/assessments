@@ -16,6 +16,10 @@
         <section id="welcome-screen" class="screen active">
             <div class="content-wrapper">
                 <h1 class="fade-in">The Assessment</h1>
+                <p class="intro-text fade-in delay-1">
+                    Please complete this assessment honestly. <br>
+                    <strong>Rules:</strong> Do not refresh the page. Do not use AI assistants (Gemini, ChatGPT, etc).
+                </p>
                 <form id="start-form" class="fade-in delay-2">
                     <div class="input-group">
                         <label for="name">Name</label>
@@ -27,6 +31,9 @@
                     </div>
                     <button type="submit" class="btn-primary">Proceed</button>
                 </form>
+                <div class="incapable-wrapper fade-in delay-3">
+                    <button id="incapable-btn" class="btn-text">I need AI help (I'm incapable)</button>
+                </div>
             </div>
         </section>
 
@@ -35,7 +42,7 @@
             <div class="assessment-layout">
                 <main class="question-area">
                     <div class="progress-indicator">
-                        <span id="q-current">01</span> <span class="divider">/</span> <span id="q-total">07</span>
+                        <span id="q-current">01</span> <span class="divider">/</span> <span id="q-total">20</span>
                     </div>
                     
                     <div id="question-container">
@@ -71,8 +78,11 @@
         <section id="completion-screen" class="screen hidden">
             <div class="content-wrapper">
                 <h1>Assessment Complete</h1>
-                <p>Your responses have been recorded.</p>
-                <p class="thank-you-msg">We are analyzing your profile for balance between professional competence and team orientation.</p>
+                <div class="final-message">
+                    <p>You don't need to wait to be kind to the next person.</p>
+                    <p>Complaining often undermines that you didn't understand the other person enough. Next time you choose to complain or back-talk, seriously assess how far you've come in your own personal growth.</p>
+                    <p>Let's foster a culture of understanding and collaboration—there's tons of crazy talent here already.</p>
+                </div>
                 <button onclick="location.reload()" class="btn-secondary">Return Home</button>
             </div>
         </section>

@@ -341,3 +341,56 @@ button:active {
     }
     h1 { font-size: 2.5rem; }
 }
+
+/* New Elements */
+.intro-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.intro-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.incapable-wrapper {
+    margin-top: 2rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.incapable-wrapper:hover {
+    opacity: 1;
+}
+
+#incapable-btn {
+    background: transparent;
+    border: none;
+    color: #ff4d4d;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+#incapable-btn:hover {
+    text-decoration: underline;
+}
+
+.final-message {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.final-message p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}

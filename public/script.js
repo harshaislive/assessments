@@ -18,6 +18,37 @@ const qTotalEl = document.getElementById('q-total');
 const timerEl = document.getElementById('timer');
 const progressBar = document.getElementById('progress-bar');
 
+// Prevent Refresh Warning
+window.addEventListener('beforeunload', (e) => {
+    e.preventDefault();
+    e.returnValue = '';
+});
+
+// Incapable Button Handler
+document.getElementById('incapable-btn').addEventListener('click', async () => {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    if (!name || !email) {
+        alert("Please enter your name and email first so we can record this.");
+        return;
+    }
+
+    if(confirm("Are you sure? This will end the assessment.")) {
+        try {
+            await fetch('/api/incapable', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email })
+            });
+            alert("Recorded. Honesty is a virtue.");
+            location.reload();
+        } catch (err) {
+            console.error(err);
+        }
+    }
+});
+
 // Init
 document.getElementById('start-form').addEventListener('submit', async (e) => {
     e.preventDefault();

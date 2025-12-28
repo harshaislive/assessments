@@ -75,5 +75,148 @@
       { "label": "C", "text": "Handle the issue, but remind the manager Monday how \"lost\" the team would be without you." },
       { "label": "D", "text": "Block work contacts during off-hours to ensure your time is never interrupted." }
     ]
+  },
+  {
+    "id": 8,
+    "title": "Scenario 8: The Broken Build",
+    "scenario": "You accidentally pushed code that broke the build. No one has noticed yet, and you could probably fix it quietly in an hour.",
+    "options": [
+      { "label": "A", "text": "Fix it quietly and hope no one checks the logs." },
+      { "label": "B", "text": "Alert the team channel immediately, apologize, and start fixing." },
+      { "label": "C", "text": "Wait until someone reports the error, then act surprised." },
+      { "label": "D", "text": "Claim the build server has been acting up lately." }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Scenario 9: The Loudest Voice",
+    "scenario": "In a planning meeting, the loudest person is pushing a plan you know is flawed. The quietest person has a better idea but isn't speaking up.",
+    "options": [
+      { "label": "A", "text": "Let the loud person win; it's not worth the conflict." },
+      { "label": "B", "text": "Publicly ask the quiet person for their thoughts to give them the floor." },
+      { "label": "C", "text": "Message the quiet person later and tell them they should have spoken up." },
+      { "label": "D", "text": "Interrupt the loud person aggressively to shut them down." }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Scenario 10: The Junior's Idea",
+    "scenario": "A junior developer suggests a refactor that seems unnecessary to you. You are the senior lead.",
+    "options": [
+      { "label": "A", "text": "Dismiss it immediately; you know the codebase better." },
+      { "label": "B", "text": "Ask them to walk you through their reasoning and prototype it." },
+      { "label": "C", "text": "Let them do it, expecting them to fail so they learn a lesson." },
+      { "label": "D", "text": "Take the core idea, polish it, and present it as your own optimization." }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Scenario 11: The Rumor Mill",
+    "scenario": "You hear a rumor that layoffs are coming. A stressed teammate asks if you know anything.",
+    "options": [
+      { "label": "A", "text": "Share the rumor to help them prepare, even if it's unverified." },
+      { "label": "B", "text": "Say \"I haven't heard anything official,\" and encourage them not to panic." },
+      { "label": "C", "text": "Tell them everything is definitely fine to protect their feelings." },
+      { "label": "D", "text": "Add your own speculation about which department is at risk." }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Scenario 12: The Ambiguous Task",
+    "scenario": "Your manager assigns you a task with very vague instructions. They are currently busy in meetings.",
+    "options": [
+      { "label": "A", "text": "Wait until they are free to ask for clarification, even if it delays work." },
+      { "label": "B", "text": "Draft a proposal of what you think needs doing and send it for async approval." },
+      { "label": "C", "text": "Do what you want; if it's wrong, it's their fault for not being clear." },
+      { "label": "D", "text": "Complaining to peers that leadership is disorganized." }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Scenario 13: The Chronic Lateness",
+    "scenario": "A peer is consistently late to stand-up, which is starting to annoy the team.",
+    "options": [
+      { "label": "A", "text": "Bring it up in the retrospective publicly to shame them into changing." },
+      { "label": "B", "text": "Check in privately to see if everything is okay with their schedule." },
+      { "label": "C", "text": "Start showing up late too; fair is fair." },
+      { "label": "D", "text": "Report them to the manager immediately." }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Scenario 14: The Credit Steal (Reverse)",
+    "scenario": "A colleague takes credit for a small fix you made. It's minor, but annoying.",
+    "options": [
+      { "label": "A", "text": "Call them out in front of everyone." },
+      { "label": "B", "text": "Mention privately: \"Hey, glad that fix worked, but please credit me next time.\"" },
+      { "label": "C", "text": "Let it slide; you don't want to seem petty." },
+      { "label": "D", "text": "Stop helping them in the future." }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Scenario 15: The \"Not My Job\"",
+    "scenario": "Another team is swamped and asks for help with manual testing. You have free time but it's boring work.",
+    "options": [
+      { "label": "A", "text": "Decline; you are a developer, not a QA tester." },
+      { "label": "B", "text": "Jump in to help clear the backlog; it helps the company shipping goals." },
+      { "label": "C", "text": "Agree only if you can get a favor in return later." },
+      { "label": "D", "text": "Do it, but make sure everyone knows you are doing them a huge favor." }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Scenario 16: The Quick Fix",
+    "scenario": "You find a bug that will take 3 days to fix properly or 1 hour to patch with a hack.",
+    "options": [
+      { "label": "A", "text": "Patch it. Speed is what matters most." },
+      { "label": "B", "text": "Explain the trade-off to stakeholders and advocate for the proper fix." },
+      { "label": "C", "text": "Hide the bug so you don't have to deal with it right now." },
+      { "label": "D", "text": "Assign the ticket to someone else." }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Scenario 17: The Feedback Sandwich",
+    "scenario": "You need to give critical feedback to a sensitive teammate.",
+    "options": [
+      { "label": "A", "text": "Be brutally honest; feelings shouldn't matter in business." },
+      { "label": "B", "text": "Be direct but kind, focusing on the work behavior, not the person." },
+      { "label": "C", "text": "Avoid giving the feedback to keep the peace." },
+      { "label": "D", "text": "Give so much praise they don't even realize you criticized them." }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Scenario 18: The Vacation Handover",
+    "scenario": "You are going on vacation for a week. The project is active.",
+    "options": [
+      { "label": "A", "text": "Tell them to call you if anything burns down." },
+      { "label": "B", "text": "Prepare detailed docs and brief a designated backup person." },
+      { "label": "C", "text": "Just set an out-of-office reply; they'll figure it out." },
+      { "label": "D", "text": "Secretly check email every day because you don't trust them." }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Scenario 19: The Team Win",
+    "scenario": "The project launched successfully. The CEO asks you how it went.",
+    "options": [
+      { "label": "A", "text": "Tell them how hard *you* worked to get it over the line." },
+      { "label": "B", "text": "Highlight the specific contributions of your teammates." },
+      { "label": "C", "text": "Mention the problems you had to overcome (complaining)." },
+      { "label": "D", "text": "Ask if this means you get a bonus." }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Scenario 20: The Uncomfortable Question",
+    "scenario": "A new hire asks why a certain legacy process is so bad. You know it was the CTO's old code.",
+    "options": [
+      { "label": "A", "text": "Defend the code blindly to show loyalty." },
+      { "label": "B", "text": "Explain the historical context honestly but admit it needs improvement." },
+      { "label": "C", "text": "Bash the code and the CTO to bond with the new hire." },
+      { "label": "D", "text": "Tell them not to ask questions like that." }
+    ]
   }
 ]
