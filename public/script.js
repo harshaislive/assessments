@@ -27,22 +27,22 @@ function setTheme(theme) {
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     
-    if (theme === 'light') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-    } else {
+    if (theme === 'dark') {
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
+    } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
     }
 }
 
 // Init Theme
-const savedTheme = localStorage.getItem('theme') || 'dark';
+const savedTheme = localStorage.getItem('theme') || 'light';
 setTheme(savedTheme);
 
 themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = document.body.getAttribute('data-theme') || 'dark';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const currentTheme = document.body.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
 });
 
