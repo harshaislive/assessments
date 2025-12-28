@@ -18,6 +18,34 @@ const qTotalEl = document.getElementById('q-total');
 const timerEl = document.getElementById('timer');
 const progressBar = document.getElementById('progress-bar');
 
+// Theme Toggle Logic
+const themeToggleBtn = document.getElementById('theme-toggle');
+const sunIcon = themeToggleBtn.querySelector('.sun-icon');
+const moonIcon = themeToggleBtn.querySelector('.moon-icon');
+
+function setTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    if (theme === 'light') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    }
+}
+
+// Init Theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+setTheme(savedTheme);
+
+themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+});
+
 // Modal Elements
 const modalOverlay = document.getElementById('custom-modal');
 const modalTitle = document.getElementById('modal-title');

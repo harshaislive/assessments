@@ -1,13 +1,36 @@
 :root {
+    /* Dark Mode (Default) */
     --bg-color: #000000;
     --card-bg: #0a0a0a;
     --text-primary: #ffffff;
     --text-secondary: #888888;
     --accent: #ffffff;
-    --accent-hover: #cccccc;
     --border-color: #222;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-bg-hover: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(255, 255, 255, 0.2);
+    --bg-gradient: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 60%);
     --font-body: 'Inter', sans-serif;
     --ease-premium: cubic-bezier(0.19, 1, 0.22, 1);
+    --modal-bg: #0a0a0a;
+    --input-border: #333;
+}
+
+[data-theme="light"] {
+    --bg-color: #f0f0f2;
+    --card-bg: #ffffff;
+    --text-primary: #18181b;
+    --text-secondary: #606065;
+    --accent: #000000;
+    --border-color: #e4e4e7;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-bg-hover: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --glass-border-hover: rgba(0, 0, 0, 0.1);
+    --bg-gradient: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 60%);
+    --modal-bg: #ffffff;
+    --input-border: #ccc;
 }
 
 * {
@@ -27,6 +50,7 @@ body {
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
     position: relative;
+    transition: background-color 0.5s var(--ease-premium), color 0.5s var(--ease-premium);
 }
 
 body::before {
@@ -34,12 +58,39 @@ body::before {
     position: absolute;
     width: 120vw;
     height: 120vh;
-    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 60%);
+    background: var(--bg-gradient);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: -1;
+    transition: background 0.5s var(--ease-premium);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    z-index: 100;
+    padding: 0.5rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.5s var(--ease-premium);
+}
+
+.theme-toggle:hover {
+    opacity: 1;
+    transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
 }
 
 .container {
@@ -138,7 +189,7 @@ input {
 
 input:focus {
     outline: none;
-    border-bottom-color: rgba(255,255,255,0.1); /* Let the pseudo-element handle the main visual */
+    border-bottom-color: rgba(128,128,128,0.2); 
 }
 
 /* Buttons */
@@ -166,8 +217,9 @@ button:active {
 }
 
 .btn-primary:hover {
-    background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    background-color: var(--text-primary);
+    filter: brightness(0.9);
+    box-shadow: 0 0 20px rgba(128,128,128,0.3);
 }
 
 .btn-secondary {
@@ -229,10 +281,10 @@ button:active {
 }
 
 .option-card {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
     padding: 1.5rem;
     cursor: pointer;
     transition: all 0.5s var(--ease-premium);
@@ -242,15 +294,15 @@ button:active {
 }
 
 .option-card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8);
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
 }
 
 .option-card.selected {
     border-color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--glass-bg-hover);
     box-shadow: 0 0 0 1px var(--text-primary);
 }
 
@@ -411,16 +463,16 @@ button:active {
 }
 
 .modal-content {
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--modal-bg);
+    border: 1px solid var(--glass-border);
     padding: 2rem;
     max-width: 400px;
     width: 90%;
     text-align: center;
     border-radius: 4px;
     transform: translateY(20px);
-    transition: transform 0.4s var(--ease-premium);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transition: transform 0.4s var(--ease-premium), background 0.4s;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
 .modal-overlay.active .modal-content {
