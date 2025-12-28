@@ -18,6 +18,43 @@ const qTotalEl = document.getElementById('q-total');
 const timerEl = document.getElementById('timer');
 const progressBar = document.getElementById('progress-bar');
 
+// Modal Elements
+const modalOverlay = document.getElementById('custom-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalMessage = document.getElementById('modal-message');
+const modalConfirmBtn = document.getElementById('modal-confirm');
+const modalCancelBtn = document.getElementById('modal-cancel');
+
+// Custom Modal Function
+function showModal(title, message, isConfirm = false) {
+    return new Promise((resolve) => {
+        modalTitle.textContent = title;
+        modalMessage.textContent = message;
+        
+        if (isConfirm) {
+            modalCancelBtn.style.display = 'inline-block';
+            modalConfirmBtn.textContent = 'Confirm';
+        } else {
+            modalCancelBtn.style.display = 'none';
+            modalConfirmBtn.textContent = 'Close';
+        }
+
+        modalOverlay.classList.remove('hidden');
+        // Force reflow
+        void modalOverlay.offsetWidth;
+        modalOverlay.classList.add('active');
+
+        const close = (result) => {
+            modalOverlay.classList.remove('active');
+            setTimeout(() => modalOverlay.classList.add('hidden'), 400);
+            resolve(result);
+        };
+
+        modalConfirmBtn.onclick = () => close(true);
+        modalCancelBtn.onclick = () => close(false);
+    });
+}
+
 // Prevent Refresh Warning
 window.addEventListener('beforeunload', (e) => {
     e.preventDefault();
@@ -30,18 +67,19 @@ document.getElementById('incapable-btn').addEventListener('click', async () => {
     const email = document.getElementById('email').value;
 
     if (!name || !email) {
-        alert("Please enter your name and email first so we can record this.");
+        await showModal("Required", "Please enter your name and email first so we can record this.");
         return;
     }
 
-    if(confirm("Are you sure? This will end the assessment.")) {
+    const confirmed = await showModal("Confirm Action", "Are you sure? This will end the assessment.", true);
+    if(confirmed) {
         try {
             await fetch('/api/incapable', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email })
             });
-            alert("Recorded. Honesty is a virtue.");
+            await showModal("Recorded", "Recorded. Honesty is a virtue.");
             location.reload();
         } catch (err) {
             console.error(err);
@@ -63,7 +101,7 @@ document.getElementById('start-form').addEventListener('submit', async (e) => {
         startAssessment();
     } catch (err) {
         console.error('Failed to load questions', err);
-        alert('Error loading assessment. Please try again.');
+        await showModal("Error", "Error loading assessment. Please try again.");
     }
 });
 
