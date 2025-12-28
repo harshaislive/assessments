@@ -47,21 +47,57 @@ app.post('/api/update', async (req, res) => {
 
 // Final Submission
 app.post('/api/submit', async (req, res) => {
-    const { email, name, answers, score, profile } = req.body;
+    const { email, name, answers } = req.body;
     console.log(`Submission from ${email}`);
+
+    // Analysis Logic
+    const idealAnswers = { 1: 'B', 2: 'C', 3: 'C', 4: 'B', 5: 'B', 6: 'B', 7: 'B' };
+    let score = 0;
+    const redFlags = [];
+
+    // Check Answers
+    for (const [qId, answer] of Object.entries(answers)) {
+        if (idealAnswers[qId] === answer) {
+            score++;
+        }
+    }
+
+    // Red Flag Detection
+    if (answers[6] === 'C' || answers[7] === 'C') redFlags.push("Hero Complex");
+    if (answers[1] === 'A' || answers[2] === 'A' || answers[4] === 'D') redFlags.push("Silo Mentality");
+    if (answers[3] === 'A' || answers[5] === 'C') redFlags.push("Credit Hog");
+    if (answers[7] === 'A' || answers[7] === 'D') redFlags.push("Rigid Boundary Distortion");
+
+    // Summary
+    let summary = "Balanced / Neutral";
+    if (score >= 6 && redFlags.length === 0) summary = "Ideal Team Player";
+    else if (redFlags.length >= 2) summary = "High Risk";
+    else if (redFlags.length === 1) summary = "Needs Coaching";
+
+    const profileAnalysis = {
+        score,
+        maxScore: 7,
+        redFlags: [...new Set(redFlags)], // unique
+        summary
+    };
 
     if (WEBHOOK_URL) {
         try {
             await axios.post(WEBHOOK_URL, {
                 type: 'final_submission',
                 timestamp: new Date().toISOString(),
-                data: { email, name, answers, score, profile }
+                data: { 
+                    email, 
+                    name, 
+                    answers, 
+                    profileAnalysis 
+                }
             });
         } catch (error) {
             console.error('Webhook error:', error.message);
         }
     }
-    res.json({ success: true });
+    res.json({ success: true, profileAnalysis });
 });
 
 app.listen(PORT, () => {
