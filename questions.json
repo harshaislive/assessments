@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "Scenario 1: The Bottleneck",
+    "scenario": "A cross-functional project is due tomorrow. You have completed your portion perfectly, but a teammate is behind because they struggled with a technical hurdle. This teammate is your peer.",
+    "options": [
+      { "label": "A", "text": "Send your completed work to the manager immediately to show you’ve met your deadline." },
+      { "label": "B", "text": "Offer to hop on a call with the teammate to share your process and help them troubleshoot." },
+      { "label": "C", "text": "Wait for the teammate to ask for help; you don’t want to overstep or make them feel incompetent." },
+      { "label": "D", "text": "Check your work one more time to ensure your \"A+\" is secured, then head home." }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Scenario 2: The Knowledge Discovery",
+    "scenario": "You’ve discovered a shortcut in the company software that saves you two hours of manual data entry every week.",
+    "options": [
+      { "label": "A", "text": "Keep it to yourself so you can use that extra time for personal projects and stand out." },
+      { "label": "B", "text": "Mention it to your manager during your next 1-on-1 to show your individual innovation." },
+      { "label": "C", "text": "Document the process and share it with the team so everyone can save time." },
+      { "label": "D", "text": "Use the shortcut but only share it if you see someone else specifically struggling." }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Scenario 3: The Unearned Praise",
+    "scenario": "During a meeting, your manager praises you for a brilliant idea that was actually sparked by a casual comment a teammate made during lunch.",
+    "options": [
+      { "label": "A", "text": "Accept the praise; it was your execution that made the idea work anyway." },
+      { "label": "B", "text": "Thank the manager, then privately tell the teammate later that you appreciated their input." },
+      { "label": "C", "text": "Immediately speak up: \"I can't take full credit; [Name] brought up the core concept.\"" },
+      { "label": "D", "text": "Say \"The team worked hard on this,\" without naming the specific person." }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Scenario 4: The Ownership Dilemma",
+    "scenario": "A client sends an urgent request that falls into a \"gray area\"—it’s not strictly your job, but the person who handles it is out sick. The client is getting frustrated.",
+    "options": [
+      { "label": "A", "text": "Explain to the client that the responsible party is out and give them a return date." },
+      { "label": "B", "text": "Try to resolve the issue yourself to protect the team’s reputation and help the client." },
+      { "label": "C", "text": "Forward the email to your manager so they can decide who should handle it." },
+      { "label": "D", "text": "Ignore the email; responding might set a precedent that you are now responsible for this." }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Scenario 5: The Team Mistake",
+    "scenario": "Your team missed a deadline. Your manager asks the group what went wrong. You know it was because a teammate forgot an approval, but you also could have checked in on them.",
+    "options": [
+      { "label": "A", "text": "Stay silent and let the teammate explain themselves; it’s their responsibility." },
+      { "label": "B", "text": "Say, \"It was a breakdown in communication. I should have followed up to confirm.\"" },
+      { "label": "C", "text": "Message the manager after the meeting to clarify exactly whose fault it was." },
+      { "label": "D", "text": "Make up a technical excuse (like a server error) to keep everyone out of trouble." }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Scenario 6: The Documentation Request",
+    "scenario": "You lead a complex process only you know. Your manager asks for a \"How-To\" manual so others can step in if you are ever unavailable.",
+    "options": [
+      { "label": "A", "text": "Create a brief outline but leave out the nuances; some things are better learned by doing." },
+      { "label": "B", "text": "Create a comprehensive guide so simple that a junior member could handle it." },
+      { "label": "C", "text": "Suggest it’s more efficient for you to just do it, as teaching others takes too long." },
+      { "label": "D", "text": "Use the request as leverage to ask for a promotion or raise before sharing the info." }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Scenario 7: The Weekend Emergency",
+    "scenario": "It is Saturday. An urgent issue arises that requires info only you have. Your manager asks for 10 minutes of your time.",
+    "options": [
+      { "label": "A", "text": "Ignore the message until Monday; weekends are a strictly \"no-work\" zone." },
+      { "label": "B", "text": "Provide the info quickly, then suggest a meeting Monday to ensure others have this info." },
+      { "label": "C", "text": "Handle the issue, but remind the manager Monday how \"lost\" the team would be without you." },
+      { "label": "D", "text": "Block work contacts during off-hours to ensure your time is never interrupted." }
+    ]
+  }
+]
