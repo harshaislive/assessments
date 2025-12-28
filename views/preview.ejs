@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Integrity Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <div class="celestial-container">
+            <!-- Sun (Light Mode) -->
+            <div class="sun-wrapper">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </div>
+            
+            <!-- Moon + Stars (Dark Mode) -->
+            <div class="moon-wrapper">
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <!-- Subtle Stars -->
+                <svg class="star-icon s-1" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2"/></svg>
+                <svg class="star-icon s-2" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1.5"/></svg>
+            </div>
+        </div>
+    </button>
+
+    <div class="container">
+        <!-- Welcome Screen -->
+        <section id="welcome-screen" class="screen hidden">
+            <div class="content-wrapper">
+                <h1 class="fade-in">THE BI ASSESSMENT</h1>
+                <p class="intro-text fade-in delay-1">
+                    Please complete this assessment honestly. <br>
+                    <strong>Rules:</strong> Do not refresh the page. Do not use AI assistants (Gemini, ChatGPT, etc).
+                </p>
+                <form id="start-form" class="fade-in delay-2">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required placeholder="...">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="...">
+                    </div>
+                    <button type="submit" class="btn-primary">Proceed</button>
+                </form>
+                <div class="incapable-wrapper fade-in delay-3">
+                    <button id="incapable-btn" class="btn-text">I need AI help (I'm incapable)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Screen -->
+        <section id="assessment-screen" class="screen hidden">
+            <div class="assessment-layout">
+                <main class="question-area">
+                    <div class="progress-indicator">
+                        <span id="q-current">01</span> <span class="divider">/</span> <span id="q-total">20</span>
+                    </div>
+                    
+                    <div id="question-container">
+                        <!-- Dynamic Question Content -->
+                    </div>
+
+                    <div class="controls">
+                        <button id="prev-btn" class="btn-secondary" disabled>Previous</button>
+                        <button id="next-btn" class="btn-primary">Next</button>
+                    </div>
+                </main>
+
+                <aside class="stats-panel">
+                    <div class="stat-card">
+                        <h3>Remaining</h3>
+                        <div class="timer-display" id="timer">02:00</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completion</h3>
+                        <div class="status-bar">
+                            <div class="status-fill" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card ghost-stat">
+                        <h3>Insight</h3>
+                        <p>“A team is not a group of people who work together. A team is a group of people who trust each other.”<br><br>— Simon Sinek</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Completion Screen -->
+        <section id="completion-screen" class="screen active">
+            <div class="manifesto-container">
+                <div class="manifesto-content">
+                    <h1 class="manifesto-title fade-in">The Unfair Advantage</h1>
+                    
+                    <div class="manifesto-body fade-in delay-1">
+                        <p>
+                            Imagine two teams facing a critical deadline. Team A has five geniuses who work in silence, hoarding knowledge to protect their value. When a build breaks, they point fingers to absolve themselves.
+                        </p>
+                        <p>
+                            Team B communicates. When one person stumbles, another adjusts their stride to keep the rhythm. They don't just fix the bug; they fix the process so it never happens again. <strong>Team B wins every time.</strong>
+                        </p>
+                        <hr class="manifesto-divider">
+                        <p>
+                            Complaining is often just the echo of a missing conversation. It signals a gap in understanding, not a flaw in character. Real growth happens when we replace judgment with curiosity—when we stop asking <em>"Why did they mess up?"</em> and start asking <em>"What obstacle are they facing?"</em>
+                        </p>
+                        <p class="manifesto-closing">
+                            We have incredible talent here. But talent is just potential. Collaboration is kinetic. Be the leader who makes it safe for everyone else to be great.
+                        </p>
+                    </div>
+
+                    <button onclick="location.reload()" class="btn-primary fade-in delay-3">Return Home</button>
+                </div>
+            </div>
+        </section>
+        <!-- Custom Modal -->
+        <div id="custom-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h3 id="modal-title">Notification</h3>
+                <p id="modal-message">Message goes here...</p>
+                <div class="modal-actions">
+                    <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                    <button id="modal-confirm" class="btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

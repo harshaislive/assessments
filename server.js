@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
     res.render('index', { questions });
 });
 
+app.get('/preview-end', (req, res) => {
+    res.render('preview', { questions: [] });
+});
+
 app.get('/api/questions', (req, res) => {
     res.json(questions);
 });
