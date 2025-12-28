@@ -20,20 +20,10 @@ const progressBar = document.getElementById('progress-bar');
 
 // Theme Toggle Logic
 const themeToggleBtn = document.getElementById('theme-toggle');
-const sunIcon = themeToggleBtn.querySelector('.sun-icon');
-const moonIcon = themeToggleBtn.querySelector('.moon-icon');
 
 function setTheme(theme) {
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    
-    if (theme === 'dark') {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-    } else {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-    }
 }
 
 // Init Theme

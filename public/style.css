@@ -67,30 +67,108 @@ body::before {
     transition: background 0.5s var(--ease-premium);
 }
 
-/* Theme Toggle */
+/* Theme Toggle & Horizon Animation */
 .theme-toggle {
     position: absolute;
     top: 2rem;
     right: 2rem;
     background: transparent;
     border: none;
-    color: var(--text-primary);
     cursor: pointer;
     z-index: 100;
-    padding: 0.5rem;
-    opacity: 0.6;
-    transition: opacity 0.3s ease, transform 0.5s var(--ease-premium);
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden; /* Mask the horizon */
+    /* Optional: glass bg for the button itself */
+    /* background: var(--glass-bg); 
+       backdrop-filter: blur(4px); */
 }
 
-.theme-toggle:hover {
+.celestial-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Common Wrapper Styles */
+.sun-wrapper, .moon-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease;
+}
+
+/* --- LIGHT MODE (Default) --- */
+/* Sun is visible */
+[data-theme="light"] .sun-wrapper {
+    transform: translateY(0) rotate(0deg);
     opacity: 1;
-    transform: rotate(15deg);
 }
 
-.theme-toggle svg {
+/* Moon is set (below horizon) */
+[data-theme="light"] .moon-wrapper {
+    transform: translateY(150%) rotate(90deg);
+    opacity: 0;
+}
+
+/* --- DARK MODE --- */
+/* Sun is set (below horizon) */
+[data-theme="dark"] .sun-wrapper {
+    transform: translateY(150%) rotate(-90deg);
+    opacity: 0;
+}
+
+/* Moon rises */
+[data-theme="dark"] .moon-wrapper {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+}
+
+/* Icon Specifics */
+.sun-icon {
     width: 24px;
     height: 24px;
-    fill: currentColor;
+    color: #FDB813; /* Warm Yellow */
+    filter: drop-shadow(0 0 5px rgba(253, 184, 19, 0.4));
+}
+
+.moon-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--text-primary);
+}
+
+/* Stars */
+.star-icon {
+    position: absolute;
+    color: var(--text-primary);
+    opacity: 0;
+    transition: opacity 0.5s ease 0.2s;
+}
+
+.star-icon.s-1 { width: 4px; top: 10px; right: 10px; }
+.star-icon.s-2 { width: 3px; bottom: 12px; left: 8px; }
+
+[data-theme="dark"] .star-icon {
+    opacity: 0.7;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.theme-toggle:hover .sun-icon {
+    transform: rotate(15deg);
+    transition: transform 0.3s ease;
 }
 
 .container {
