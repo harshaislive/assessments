@@ -16,10 +16,15 @@ app.set('view engine', 'ejs');
 
 // Load Questions
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.json'), 'utf8'));
+const shivathmikaQuestions = JSON.parse(fs.readFileSync(path.join(__dirname, 'shivathmika_questions.json'), 'utf8'));
 
 // Routes
 app.get('/', (req, res) => {
     res.render('index', { questions, testMode: false });
+});
+
+app.get('/shivathmika', (req, res) => {
+    res.render('shivathmika', { questions: shivathmikaQuestions, testMode: false });
 });
 
 app.get('/test-drive', (req, res) => {
@@ -32,6 +37,10 @@ app.get('/preview-end', (req, res) => {
 
 app.get('/api/questions', (req, res) => {
     res.json(questions);
+});
+
+app.get('/api/shivathmika/questions', (req, res) => {
+    res.json(shivathmikaQuestions);
 });
 
 // Incremental Update
@@ -54,6 +63,60 @@ app.post('/api/update', async (req, res) => {
     }
     res.sendStatus(200);
 });
+
+// Shivathmika Update
+app.post('/api/shivathmika/update', async (req, res) => {
+    let { email, name, questionId, answer, justification, status, testMode } = req.body;
+    console.log(`Update from ${email}: Q${questionId} = ${answer} (Justification provided)`);
+    
+    if (testMode) name = `[TEST] ${name}`;
+
+    if (WEBHOOK_URL) {
+        try {
+            await axios.post(WEBHOOK_URL, {
+                type: 'shivathmika_update',
+                timestamp: new Date().toISOString(),
+                data: { email, name, questionId, answer, justification, status, isTest: !!testMode }
+            });
+        } catch (error) {
+            console.error('Webhook error:', error.message);
+        }
+    }
+    res.sendStatus(200);
+});
+
+// Shivathmika Submit
+app.post('/api/shivathmika/submit', async (req, res) => {
+    let { email, name, answers, testMode } = req.body;
+    if (testMode) name = `[TEST] ${name}`;
+
+    console.log(`Shivathmika Submission from ${email}`);
+
+    // No auto-grading logic needed yet, just raw capture
+    const profileAnalysis = {
+        summary: "Assessment Submitted for Review"
+    };
+
+    if (WEBHOOK_URL) {
+        try {
+            await axios.post(WEBHOOK_URL, {
+                type: 'shivathmika_final_submission',
+                timestamp: new Date().toISOString(),
+                data: { 
+                    email, 
+                    name, 
+                    answers, 
+                    profileAnalysis,
+                    isTest: !!testMode
+                }
+            });
+        } catch (error) {
+            console.error('Webhook error:', error.message);
+        }
+    }
+    res.json({ success: true, profileAnalysis });
+});
+
 
 // Incapable Declaration
 app.post('/api/incapable', async (req, res) => {

@@ -1,0 +1,332 @@
+[
+  {
+    "id": 1,
+    "title": "Question 1",
+    "scenario": "What is the primary \"Lead Capture\" mechanism in the Bee Forest Tech Stack and why is it preferred over email?",
+    "options": [
+      { "label": "A", "text": "Manual entry into Google Sheets, because it allows for easy editing by anyone." },
+      { "label": "B", "text": "Direct email to the sales team, ensuring a personal touch immediately." },
+      { "label": "C", "text": "Typeform via Webhooks, ensuring structured data is immediately captured and triggered into the automation pipeline." },
+      { "label": "D", "text": "Cold calling, because outbound sales are the only way to grow." }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Question 2",
+    "scenario": "Which platform serves as the central CRM/ERP \"Source of Truth\" where all business logic ultimately resides?",
+    "options": [
+      { "label": "A", "text": "Google Sheets, acting as a temporary database for the sales team." },
+      { "label": "B", "text": "Zoho One, serving as the unified ecosystem for CRM, finance, and operations." },
+      { "label": "C", "text": "Notion, used for documentation and task tracking." },
+      { "label": "D", "text": "Salesforce, because it is the industry standard for large enterprises." }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Question 3",
+    "scenario": "In the \"Guardian\" role, what specifically does \"The Bridge\" refer to?",
+    "options": [
+      { "label": "A", "text": "The communication channel between Shivatmika and the Founders for daily updates." },
+      { "label": "B", "text": "The network connection between the Hetzner VPS and the Coolify dashboard." },
+      { "label": "C", "text": "The unbreakable data pipeline: Typeform (Source) → Webhooks (Trigger) → n8n (Processing) → Zoho CRM (Destination)." },
+      { "label": "D", "text": "The link between the WordPress website frontend and the blog content management system." }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Question 4",
+    "scenario": "What is the primary infrastructure provider hosting the Bee Forest servers?",
+    "options": [
+      { "label": "A", "text": "AWS (Amazon Web Services) for scalable cloud functions." },
+      { "label": "B", "text": "Google Cloud Platform for native integration with Workspace." },
+      { "label": "C", "text": "Hetzner, providing the dedicated/VPS high-performance servers for our self-hosted stack." },
+      { "label": "D", "text": "DigitalOcean for simple droplet management." }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Question 5",
+    "scenario": "Which tool acts as the self-hosted PaaS/Dashboard for managing containers and deployments on our infrastructure?",
+    "options": [
+      { "label": "A", "text": "Docker Desktop running locally on your machine." },
+      { "label": "B", "text": "Kubernetes for enterprise-grade orchestration." },
+      { "label": "C", "text": "Coolify, serving as our self-hosted alternative to Vercel/Heroku for managing apps and databases." },
+      { "label": "D", "text": "Portainer for basic container visualization." }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Question 6",
+    "scenario": "What is the primary goal of the \"Innovator\" role regarding the sales cycle?",
+    "options": [
+      { "label": "A", "text": "To make the sales cycle longer by adding more data validation steps." },
+      { "label": "B", "text": "To replace the sales team entirely with AI bots to save costs." },
+      { "label": "C", "text": "To shorten the sales cycle and reduce human friction by automating repetitive tasks for the Execution Team." },
+      { "label": "D", "text": "To generate more leads regardless of quality to keep the pipeline full." }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Question 7",
+    "scenario": "Why is there a mandate to move workflows from \"Manual Sheets\" to \"Zoho/Data Tables\"?",
+    "options": [
+      { "label": "A", "text": "Google Sheets is too expensive to license for the whole team." },
+      { "label": "B", "text": "To move from \"messy,\" error-prone manual processes to \"clean,\" scalable, and automated systems in Zoho." },
+      { "label": "C", "text": "Zoho looks better visually and has a dark mode." },
+      { "label": "D", "text": "To restrict access so the sales team cannot see the data." }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Question 8",
+    "scenario": "Which AI model is primarily identified for handling complex logic and reasoning in this stack?",
+    "options": [
+      { "label": "A", "text": "GPT-4, accessed via the OpenAI API." },
+      { "label": "B", "text": "Claude, used for its large context window." },
+      { "label": "C", "text": "Gemini, utilized within our agentic flows for reasoning and synthesis." },
+      { "label": "D", "text": "Llama 2, hosted locally on our servers." }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Question 9",
+    "scenario": "What is the \"Execution Team\" primarily responsible for?",
+    "options": [
+      { "label": "A", "text": "Monitoring server logs and handling maintenance." },
+      { "label": "B", "text": "Closing deals (The Closers) and converting leads into revenue." },
+      { "label": "C", "text": "Writing Python scripts to automate their own tasks." },
+      { "label": "D", "text": "Managing the WordPress site design and content." }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Question 10",
+    "scenario": "Which component serves as the \"Workflow Automation\" engine connecting all disparate services?",
+    "options": [
+      { "label": "A", "text": "Zapier, for simple linear automations." },
+      { "label": "B", "text": "Make.com, for visual workflow building." },
+      { "label": "C", "text": "n8n, self-hosted on our infrastructure to handle complex, branching logic and integrations." },
+      { "label": "D", "text": "Power Automate, for Microsoft ecosystem integrations." }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Question 11",
+    "scenario": "As the \"Guardian\", what is your responsibility regarding \"Uptime\"?",
+    "options": [
+      { "label": "A", "text": "Check the status page once a week during the team meeting." },
+      { "label": "B", "text": "Maintain 24/7 availability of Hetzner servers and Coolify containers, ensuring the \"Execution Team\" never faces downtime." },
+      { "label": "C", "text": "Report the downtime to the founders and wait for them to fix it." },
+      { "label": "D", "text": "Only worry about uptime during standard business hours (9-5)." }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Question 12",
+    "scenario": "The \"Strict Master\" mandate splits your role into which two critical pillars?",
+    "options": [
+      { "label": "A", "text": "The Intern (learning) and The Employee (doing tasks)." },
+      { "label": "B", "text": "The Coder (writing scripts) and The Designer (making UI)." },
+      { "label": "C", "text": "The Guardian (Infrastructure & Execution) and The Innovator (Scaling & Future-Proofing)." },
+      { "label": "D", "text": "The Salesperson (talking to clients) and The Manager (organizing files)." }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Question 13",
+    "scenario": "What is the primary function of Flowise in the Bee Forest stack?",
+    "options": [
+      { "label": "A", "text": "Managing database backups for the Zoho CRM." },
+      { "label": "B", "text": "Creating Agentic flows (LLM chains) to handle complex reasoning tasks." },
+      { "label": "C", "text": "Hosting the WordPress site's frontend files." },
+      { "label": "D", "text": "Sending bulk marketing emails to leads." }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Question 14",
+    "scenario": "Which protocol is essential for giving AI models access to external tools and data within our stack?",
+    "options": [
+      { "label": "A", "text": "HTTP, for standard web browsing." },
+      { "label": "B", "text": "FTP, for transferring large files." },
+      { "label": "C", "text": "MCP (Model Context Protocol), enabling the AI to interact with our local file system and tools." },
+      { "label": "D", "text": "SMTP, for sending email notifications." }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Question 15",
+    "scenario": "If a standard n8n node cannot handle a complex logic requirement (e.g., advanced regex or data transformation), what is the expected solution?",
+    "options": [
+      { "label": "A", "text": "Tell the team it's impossible and the feature cannot be built." },
+      { "label": "B", "text": "Switch the entire workflow to Zapier because it's easier." },
+      { "label": "C", "text": "Implement a custom \"Code Node\" using complex Python or Node.js scripting to bridge the gap." },
+      { "label": "D", "text": "Manually process that specific data point in a spreadsheet." }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Question 16",
+    "scenario": "Which platform is used for Version Control to ensure code safety and history?",
+    "options": [
+      { "label": "A", "text": "GitLab, self-hosted on our server." },
+      { "label": "B", "text": "Bitbucket, integrated with Jira." },
+      { "label": "C", "text": "GitHub, acting as the repository for all custom scripts and configurations." },
+      { "label": "D", "text": "SourceForge, for open-source projects." }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Question 17",
+    "scenario": "When deploying a new custom tool or MCP, where should it ideally be hosted?",
+    "options": [
+      { "label": "A", "text": "On your local laptop, running only when you are online." },
+      { "label": "B", "text": "On a shared hosting plan to save money." },
+      { "label": "C", "text": "Via Coolify on the Hetzner VPS, ensuring it runs permanently in the cloud environment." },
+      { "label": "D", "text": "On a public Heroku tier that sleeps after 30 minutes of inactivity." }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Question 18",
+    "scenario": "A \"Webhook\" is primarily used in this stack to:",
+    "options": [
+      { "label": "A", "text": "Serve the HTML/CSS for the website frontend." },
+      { "label": "B", "text": "Receive real-time data payloads immediately after a Typeform submission." },
+      { "label": "C", "text": "Store encrypted customer passwords securely." },
+      { "label": "D", "text": "Generate AI images for social media." }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Question 19",
+    "scenario": "Which two languages are explicitly mentioned for scripting within the ecosystem?",
+    "options": [
+      { "label": "A", "text": "Java and C++ for high-performance applications." },
+      { "label": "B", "text": "Ruby and PHP for legacy web support." },
+      { "label": "C", "text": "Python and Node.js for automation scripts and n8n functions." },
+      { "label": "D", "text": "Go and Rust for system-level programming." }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Question 20",
+    "scenario": "To \"Future-Proof\" the system, the Innovator must implement:",
+    "options": [
+      { "label": "A", "text": "More manual checks to ensure accuracy before automation." },
+      { "label": "B", "text": "Older, stable technologies that haven't changed in 10 years." },
+      { "label": "C", "text": "Voice Innovations and Chatbots using agentic workflows to stay ahead of the curve." },
+      { "label": "D", "text": "Cheaper hosting providers to reduce the monthly burn rate." }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Question 21",
+    "scenario": "In the context of n8n, what represents a \"clean\" workflow?",
+    "options": [
+      { "label": "A", "text": "One with many crossing wires that looks complex and impressive." },
+      { "label": "B", "text": "One that relies heavily on email triggers and manual confirmations." },
+      { "label": "C", "text": "One that is automated, reliable, uses robust data structures (Zoho/Tables), and handles errors gracefully." },
+      { "label": "D", "text": "One that requires manual approval for every step to ensure safety." }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Question 22",
+    "scenario": "It is 2:00 AM and you receive an alert that the Coolify dashboard is unreachable. What is the \"Guardian\" response?",
+    "options": [
+      { "label": "A", "text": "Go back to sleep, assuming it's a glitch, and check it when you wake up at 9:00 AM." },
+      { "label": "B", "text": "Email the founders immediately to inform them, then wait for their instructions on how to proceed." },
+      { "label": "C", "text": "Investigate the Hetzner server status and attempt to restart the service immediately and reach late to office by explaining this to manager." },
+      { "label": "D", "text": "Post on a public community forum asking for help and wait for a stranger to reply." }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Question 23",
+    "scenario": "You notice the sales team is manually copying data from a Google Sheet to Zoho CRM every morning. What is your \"Innovator\" move?",
+    "options": [
+      { "label": "A", "text": "Scold the team for being inefficient and tell them they are wasting time." },
+      { "label": "B", "text": "Ignore it, as it is an operational task and you are focused on infrastructure." },
+      { "label": "C", "text": "Proactively map the manual process, build an n8n automation to eliminate the data entry, and present the solution." },
+      { "label": "D", "text": "Suggest they hire an intern specifically to handle the manual data entry." }
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Question 24",
+    "scenario": "A critical Webhook from Typeform fails, stopping new leads from entering Zoho. At the same time, you are deeply focused on a cool new AI feature. What do you do?",
+    "options": [
+      { "label": "A", "text": "Finish the AI feature first because it is innovative and exciting." },
+      { "label": "B", "text": "Immediately drop the AI work; the \"Bridge\" (Revenue Flow) is broken and must be fixed NOW." },
+      { "label": "C", "text": "Ask the sales team to monitor Typeform manually until you are free." },
+      { "label": "D", "text": "Wait for the weekly status meeting to report that the leads are missing." }
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Question 25",
+    "scenario": "You want to implement a new Agentic Workflow using Gemini to help qualify leads. How do you propose this to the founders?",
+    "options": [
+      { "label": "A", "text": "\"Can I try this cool new tool? It looks fun.\"" },
+      { "label": "B", "text": "\"I installed this new thing on the server, hope you find a use for it.\"" },
+      { "label": "C", "text": "\"I've identified a bottleneck in lead qualification. This Gemini agent can reduce response time by 50%. Here is the prototype and the expected ROI.\"" },
+      { "label": "D", "text": "\"The current system is bad and outdated, we need AI immediately.\"" }
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Question 26",
+    "scenario": "The \"Strict Master\" mandate implies that moving from Intern to Manager requires a shift in mindset. What is the key shift?",
+    "options": [
+      { "label": "A", "text": "Working fewer hours because managers delegate everything." },
+      { "label": "B", "text": "Asking for permission and step-by-step guides for every small task." },
+      { "label": "C", "text": "Taking full ownership of problems and solutions, acting as a \"Guardian\" of the stack without needing constant supervision." },
+      { "label": "D", "text": "Focusing only on the technical tasks you enjoy and ignoring the business needs." }
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Question 27",
+    "scenario": "A server update breaks an existing Python script used in a critical automation. The \"Maintenance\" duty dictates:",
+    "options": [
+      { "label": "A", "text": "You revert the update or debug and fix the script immediately to restore service to the team." },
+      { "label": "B", "text": "You blame the update provider and tell the team the feature is down indefinitely." },
+      { "label": "C", "text": "You disable the automation and tell the team to go back to manual processing permanently." },
+      { "label": "D", "text": "You write a long report about why Python is difficult to maintain." }
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Question 28",
+    "scenario": "Why is \"Justification is King\" in this assessment?",
+    "options": [
+      { "label": "A", "text": "To check your ability to write perfect English grammar." },
+      { "label": "B", "text": "Because knowing \"Why\" you took an action demonstrates the critical thinking required for a managerial role." },
+      { "label": "C", "text": "To make the test longer and more tedious to complete." },
+      { "label": "D", "text": "To test your ability to copy and paste definitions from the documentation." }
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Question 29",
+    "scenario": "The sales team reports a bug: \"The leads aren't showing up in Zoho.\" Who owns this problem?",
+    "options": [
+      { "label": "A", "text": "The Typeform customer support team." },
+      { "label": "B", "text": "The Sales Team Lead, who should figure out where the leads went." },
+      { "label": "C", "text": "Shivatmika (The Guardian), because she owns the integrity of the data pipeline." },
+      { "label": "D", "text": "The Internet Service Provider, because it might be a network issue." }
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Question 30",
+    "scenario": "Which mindset best fits the \"Innovator\" pillar?",
+    "options": [
+      { "label": "A", "text": "\"If it ain't broke, don't fix it.\" (Passive)" },
+      { "label": "B", "text": "\"I'll wait for someone to tell me what to improve.\" (Reactive)" },
+      { "label": "C", "text": "\"How can I make this system faster, cheaper, and more autonomous before anyone asks?\" (Proactive)" },
+      { "label": "D", "text": "\"Automation is too risky, let's stick to manual sheets.\" (Fearful)" }
+    ]
+  }
+]

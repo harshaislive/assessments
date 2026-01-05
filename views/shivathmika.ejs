@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivatmika Role Transition Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <div class="celestial-container">
+            <!-- Sun (Light Mode) -->
+            <div class="sun-wrapper">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </div>
+            
+            <!-- Moon + Stars (Dark Mode) -->
+            <div class="moon-wrapper">
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <!-- Subtle Stars -->
+                <svg class="star-icon s-1" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2"/></svg>
+                <svg class="star-icon s-2" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1.5"/></svg>
+            </div>
+        </div>
+    </button>
+
+    <div class="container">
+        <% if (testMode) { %>
+            <div style="position:fixed; bottom:20px; left:20px; background:#ff4d4d; color:white; padding:5px 10px; border-radius:4px; font-size:12px; z-index:1000; font-weight:bold;">TEST MODE</div>
+        <% } %>
+        <script>
+            window.isTestMode = <%= testMode %>;
+        </script>
+        <!-- Welcome Screen -->
+        <section id="welcome-screen" class="screen active">
+            <div class="content-wrapper">
+                <h1 class="fade-in">SHIVATMIKA: THE STRICT MASTER ASSESSMENT</h1>
+                <p class="intro-text fade-in delay-1">
+                    This determines your transition from Intern to Manager. <br>
+                    <strong>Rules:</strong> Justification is King. Explain your choices thoroughly.
+                </p>
+                <form id="start-form" class="fade-in delay-2">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required placeholder="Shivatmika" value="Shivatmika">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="...">
+                    </div>
+                    <button type="submit" class="btn-primary">Begin Assessment</button>
+                </form>
+                <div class="incapable-wrapper fade-in delay-3">
+                    <button id="incapable-btn" class="btn-text">I am not ready (Exit)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Screen -->
+        <section id="assessment-screen" class="screen hidden">
+            <div class="assessment-layout">
+                <main class="question-area">
+                    <div class="progress-indicator">
+                        <span id="q-current">01</span> <span class="divider">/</span> <span id="q-total">30</span>
+                    </div>
+                    
+                    <div id="question-container">
+                        <!-- Dynamic Question Content -->
+                    </div>
+
+                    <div class="controls">
+                        <button id="prev-btn" class="btn-secondary locked" disabled>
+                            <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Previous
+                        </button>
+                        <button id="next-btn" class="btn-primary locked" disabled>
+                            <span class="btn-text">Next</span>
+                            <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </main>
+
+                <aside class="stats-panel">
+                    <div class="stat-card">
+                        <h3>Remaining</h3>
+                        <div class="timer-display" id="timer">03:00</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completion</h3>
+                        <div class="status-bar">
+                            <div class="status-fill" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card ghost-stat">
+                        <h3>Mandate</h3>
+                        <p>“You are no longer just a task-doer. You are a Guardian and an Innovator.”</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Completion Screen -->
+        <section id="completion-screen" class="screen hidden">
+            <div class="manifesto-container">
+                <div class="manifesto-content">
+                    <h1 class="manifesto-title fade-in">Assessment Submitted</h1>
+                    
+                    <div class="manifesto-body fade-in delay-1">
+                        <p>
+                            Your responses have been recorded. The founders will review your justifications to determine if you have met the "Strict Master" expectations.
+                        </p>
+                        <p>
+                            Remember: <strong>Uptime is owned, not hoped for. Innovation is seized, not requested.</strong>
+                        </p>
+                        <hr class="manifesto-divider">
+                    </div>
+
+                    <button onclick="location.reload()" class="btn-primary fade-in delay-3">Return Home</button>
+                </div>
+            </div>
+        </section>
+        <!-- Custom Modal -->
+        <div id="custom-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h3 id="modal-title">Notification</h3>
+                <p id="modal-message">Message goes here...</p>
+                <div class="modal-actions">
+                    <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                    <button id="modal-confirm" class="btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/shivathmika_script.js"></script>
+</body>
+</html>

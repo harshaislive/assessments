@@ -187,11 +187,13 @@ body::before {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to allow scrolling from top */
     align-items: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto; /* Enable scrolling */
+    padding: 4rem 0; /* Add padding for breathing room */
 }
 
 .screen.active {
@@ -721,3 +723,41 @@ button:active {
     margin-top: 0;
     min-width: 100px;
 }
+
+/* Shivathmika Justification Box */
+.justification-area label {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+
+.justification-input {
+    width: 100%;
+    padding: 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: vertical;
+    transition: all 0.3s var(--ease-premium);
+}
+
+.justification-input:focus {
+    outline: none;
+    border-color: var(--text-primary);
+    background: var(--glass-bg-hover);
+    box-shadow: 0 5px 20px -5px rgba(0,0,0,0.1);
+}
+
+.justification-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
